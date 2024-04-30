@@ -26,6 +26,7 @@ def main():
     documents = load_documents()
     chunks = split_documents(documents)
     add_to_chroma(chunks)
+    print("✅ Documents added.")
 
 
 def load_documents():
@@ -35,8 +36,8 @@ def load_documents():
 
 def split_documents(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=80,
+        chunk_size=500,
+        chunk_overlap=100,
         length_function=len,
         is_separator_regex=False,
     )
